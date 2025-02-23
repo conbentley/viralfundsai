@@ -8,8 +8,8 @@
   <style>
     body {
       font-family: 'Inter', Arial, sans-serif;
-      background: #1A1A2E;
-      color: #E0E0E0;
+      background: #fff;
+      color: #1A1A2E;
       margin: 0;
       padding: 0;
       line-height: 1.6;
@@ -19,7 +19,7 @@
       text-align: center;
       padding: 80px 20px 20px;
       overflow: hidden;
-      background: #0F0F1A;
+      background: #fff;
     }
     header video {
       position: absolute;
@@ -36,16 +36,17 @@
       z-index: 1;
     }
     h1 {
-      color: #fff;
+      color: #1A1A2E;
       font-size: 3.5em;
       font-weight: 700;
       margin: 0 0 10px;
+      line-height: 1.1;
     }
     header p {
       font-size: 1.3em;
       max-width: 700px;
       margin: 10px auto;
-      color: #A0A0A0;
+      color: #4A4A6A;
     }
     nav {
       position: absolute;
@@ -53,18 +54,24 @@
       right: 20px;
     }
     nav a {
-      color: #fff;
+      color: #1A1A2E;
       text-decoration: none;
       margin-left: 20px;
       font-size: 1em;
+      font-weight: 600;
     }
     nav button {
-      background: #333;
+      background: #6B5BFF;
       border: none;
       color: #fff;
       padding: 8px 16px;
       border-radius: 5px;
       cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    nav button:hover {
+      background: #4B8CFF;
     }
     .upload-section {
       text-align: center;
@@ -74,19 +81,21 @@
     .input-wrapper {
       display: flex;
       justify-content: center;
-      background: #2E2E4A;
+      background: #F5F5F5;
       border-radius: 5px;
       overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     input[type="text"] {
       padding: 12px;
       border: none;
       background: transparent;
-      color: #E0E0E0;
+      color: #1A1A2E;
       width: 100%;
       max-width: 350px;
       font-size: 1em;
       outline: none;
+      placeholder-color: #4A4A6A;
     }
     button.generate {
       padding: 12px 24px;
@@ -103,16 +112,16 @@
     }
     .trust {
       font-size: 0.9em;
-      color: #A0A0A0;
+      color: #4A4A6A;
       margin-top: 10px;
     }
-    .features {
+    .features, .monetization, .clip-showcase, .testimonials, .pricing {
       padding: 60px 20px;
       text-align: center;
-      background: #0F0F1A;
+      background: #fff;
     }
     h2 {
-      color: #fff;
+      color: #1A1A2E;
       font-size: 2.2em;
       font-weight: 600;
       margin-bottom: 40px;
@@ -125,33 +134,26 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    .feature {
+    .feature, .monetization-feature, .clip, .testimonial, .plan {
       width: 300px;
       text-align: center;
     }
-    .feature img {
+    .feature img, .monetization-feature img {
       width: 60px;
       margin-bottom: 10px;
     }
-    .feature h3 {
+    .feature h3, .monetization-feature h3 {
       color: #6B5BFF;
       font-size: 1.4em;
       font-weight: 600;
       margin: 10px 0;
     }
-    .feature p {
-      color: #A0A0A0;
+    .feature p, .monetization-feature p {
+      color: #4A4A6A;
       font-size: 1em;
     }
-    .monetization {
-      padding: 60px 20px;
-      text-align: center;
-      background: #1A1A2E;
-    }
     .clip-showcase {
-      padding: 60px 20px;
-      text-align: center;
-      background: #0F0F1A;
+      background: #F5F5F5;
     }
     .clip-grid {
       display: grid;
@@ -161,10 +163,12 @@
       margin: 0 auto;
     }
     .clip {
-      background: #2E2E4A;
+      background: #fff;
       padding: 10px;
       border-radius: 10px;
+      border: 1px solid #E0E0E0;
       overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
     video {
       width: 100%;
@@ -173,20 +177,17 @@
     .clip p {
       margin: 5px 0;
       font-size: 0.9em;
-      color: #E0E0E0;
+      color: #1A1A2E;
     }
     .testimonials {
-      padding: 60px 20px;
-      text-align: center;
-      background: #1A1A2E;
+      background: #F5F5F5;
     }
     .testimonial {
-      width: 300px;
       text-align: center;
     }
     .testimonial p {
       font-style: italic;
-      color: #E0E0E0;
+      color: #4A4A6A;
       margin: 0 0 10px;
     }
     .testimonial h3 {
@@ -195,25 +196,23 @@
       font-weight: 600;
     }
     .pricing {
-      padding: 60px 20px;
-      text-align: center;
-      background: #0F0F1A;
+      background: #fff;
     }
     .plan {
-      background: #2E2E4A;
+      background: #fff;
       padding: 20px;
       border-radius: 10px;
-      width: 300px;
-      margin: 0 auto;
+      border: 1px solid #E0E0E0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
     .plan h3 {
-      color: #fff;
+      color: #1A1A2E;
       font-size: 1.8em;
       font-weight: 600;
       margin: 0 0 10px;
     }
     .plan p {
-      color: #A0A0A0;
+      color: #4A4A6A;
       margin: 0 0 20px;
     }
     .plan button {
@@ -290,17 +289,17 @@
   <section class="monetization">
     <h2>Monetize Like a Pro</h2>
     <div class="grid">
-      <div class="feature">
+      <div class="monetization-feature">
         <img src="https://images.unsplash.com/photo-1551288049-b11d4a0c25e3?w=60" alt="Money Icon">
         <h3>Earnings Boost</h3>
         <p>Add affiliate links and sponsor overlays to every clip—turn views into revenue fast.</p>
       </div>
-      <div class="feature">
+      <div class="monetization-feature">
         <img src="https://images.unsplash.com/photo-1617604931442-7e0c8ed2963c?w=60" alt="Dashboard Icon">
         <h3>CashFlow Dashboard</h3>
         <p>Track every dollar from platforms, affiliates, and sponsors in real-time.</p>
       </div>
-      <div class="feature">
+      <div class="monetization-feature">
         <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=60" alt="Revenue Icon">
         <h3>Revenue Ready</h3>
         <p>Optimize clips for TikTok payouts and YouTube funds with one tap—maximize your income.</p>
