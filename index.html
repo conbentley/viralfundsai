@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ViralFunds AI</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #1A1A2E;
+      color: #E0E0E0;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #00D4FF;
+      font-size: 2.5em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #00D4FF;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #FF00FF;
+      font-size: 1.8em;
+      margin-top: 40px;
+      text-shadow: 0 0 5px #FF00FF;
+    }
+    .upload-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    input[type="file"] {
+      padding: 10px;
+      border: 2px solid #00D4FF;
+      background: #0F0F1A;
+      color: #E0E0E0;
+      border-radius: 5px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 300px;
+    }
+    button {
+      padding: 12px 24px;
+      background: linear-gradient(45deg, #00D4FF, #FF00FF);
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00D4FF;
+    }
+    #clipContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .clip {
+      background: #0F0F1A;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #FF00FF;
+      transition: transform 0.2s;
+      width: 300px;
+      text-align: center;
+    }
+    .clip:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 10px #FF00FF;
+    }
+    video {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .clip p {
+      margin: 5px 0;
+      font-size: 0.9em;
+    }
+    .dashboard {
+      text-align: center;
+      margin-top: 40px;
+    }
+    input[type="number"] {
+      padding: 10px;
+      border: 2px solid #00D4FF;
+      background: #0F0F1A;
+      color: #E0E0E0;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 200px;
+      margin: 10px 0;
+    }
+    #earningsDisplay {
+      color: #00D4FF;
+      font-size: 1.2em;
+      text-shadow: 0 0 5px #00D4FF;
+      margin-top: 10px;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwRDRGRiIgb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMCwwIEwxMDAlLDEwMCBNMCwxMDAgTDEwMCwwIi8+PC9nPjwvc3ZnPg==');
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <h1>ViralFunds AI</h1>
+  <div class="upload-section">
+    <input type="file" id="videoInput" accept="video/*">
+    <button onclick="uploadVideo()">Go Viral</button>
+  </div>
+  <div id="clipContainer">
+    <div class="clip">
+      <video src="https://via.placeholder.com/300x150.mp4" controls></video>
+      <p>Wow, this is insane! - Link in bio!</p>
+    </div>
+    <div class="clip">
+      <video src="https://via.placeholder.com/300x150.mp4" controls></video>
+      <p>Wait for it... - Link in bio!</p>
+    </div>
+    <div class="clip">
+      <video src="https://via.placeholder.com/300x150.mp4" controls></video>
+      <p>You won’t believe this! - Link in bio!</p>
+    </div>
+  </div>
+  <div class="dashboard">
+    <h2>CashFlow Dashboard</h2>
+    <input type="number" id="viewsInput" placeholder="Enter views">
+    <button onclick="updateEarnings()">Estimate Earnings</button>
+    <p id="earningsDisplay">Est. Earnings: $0.00</p>
+  </div>
+
+  <script>
+    function uploadVideo() {
+      const file = document.getElementById('videoInput').files[0];
+      if (!file) return alert('Pick a video first!');
+      alert('Upload coming soon! For now, enjoy the preview.');
+    }
+
+    function updateEarnings() {
+      const views = document.getElementById('viewsInput').value || 0;
+      const earnings = (views / 1000) * 0.03;
+      document.getElementById('earningsDisplay').innerText = `Est. Earnings: $${earnings.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
