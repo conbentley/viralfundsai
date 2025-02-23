@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ViralFunds AI - Clips That Make Cash</title>
+  <title>ViralFunds AI - Clips That Cash In</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -14,29 +14,40 @@
       line-height: 1.6;
     }
     header {
+      position: relative;
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(to bottom, #0F0F1A, #1A1A2E);
+      padding: 100px 20px;
+      overflow: hidden;
+    }
+    header video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      opacity: 0.5;
     }
     h1 {
       color: #00D4FF;
-      font-size: 3em;
+      font-size: 3.5em;
       margin: 0;
-      letter-spacing: 1px;
+      text-shadow: 0 0 10px #00D4FF;
     }
     header p {
-      font-size: 1.3em;
+      font-size: 1.5em;
       max-width: 700px;
       margin: 20px auto;
       color: #A0A0A0;
     }
     .upload-section {
-      text-align: center;
-      padding: 30px;
       background: #0F0F1A;
+      padding: 20px;
       border-radius: 10px;
       max-width: 600px;
-      margin: -50px auto 40px; /* Overlaps header slightly */
+      margin: -60px auto 40px;
       position: relative;
       box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
     }
@@ -63,57 +74,52 @@
     button:hover {
       transform: scale(1.05);
     }
-    .features {
-      padding: 40px 20px;
+    .features, .how-it-works, .testimonials, .pricing {
+      padding: 60px 20px;
       text-align: center;
     }
-    .features h2 {
+    h2 {
       color: #FF00FF;
-      font-size: 2em;
+      font-size: 2.5em;
       margin-bottom: 40px;
     }
-    .feature-grid {
+    .grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 30px;
       justify-content: center;
       max-width: 1200px;
       margin: 0 auto;
     }
-    .feature {
+    .feature, .step, .testimonial, .plan {
       background: #0F0F1A;
       padding: 20px;
       border-radius: 10px;
       width: 300px;
-      border: 1px solid #FF00FF;
+      border: 1px solid #00D4FF;
     }
-    .feature h3 {
+    .feature img, .step img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+    h3 {
       color: #00D4FF;
-      font-size: 1.4em;
+      font-size: 1.5em;
       margin: 0 0 10px;
-    }
-    #clipContainer {
-      padding: 40px 20px;
-      text-align: center;
-      background: #1A1A2E;
-    }
-    #clipContainer h2 {
-      color: #FF00FF;
-      font-size: 2em;
-      margin-bottom: 30px;
     }
     .clip-grid {
       display: flex;
       gap: 20px;
       justify-content: center;
       flex-wrap: wrap;
+      padding: 20px;
     }
     .clip {
       background: #0F0F1A;
       padding: 10px;
       border-radius: 10px;
       width: 300px;
-      border: 1px solid #00D4FF;
+      border: 1px solid #FF00FF;
     }
     video {
       width: 100%;
@@ -123,86 +129,140 @@
       margin: 5px 0;
       font-size: 0.9em;
     }
-    .pricing-tease {
-      text-align: center;
-      padding: 40px 20px;
-      background: #0F0F1A;
+    .plan {
+      border: 1px solid #FF00FF;
     }
-    .pricing-tease h2 {
+    .plan h3 {
       color: #FF00FF;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    .pricing-tease p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 0 auto;
     }
     footer {
+      padding: 40px 20px;
+      background: #0F0F1A;
       text-align: center;
-      padding: 20px;
       color: #A0A0A0;
-      font-size: 0.9em;
-      background: #1A1A2E;
+    }
+    footer a {
+      color: #00D4FF;
+      text-decoration: none;
+      margin: 0 10px;
     }
   </style>
 </head>
 <body>
   <header>
+    <video autoplay muted loop>
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-background-with-waves-31872-large.mp4" type="video/mp4">
+    </video>
     <h1>ViralFunds AI</h1>
-    <p>Transform your videos into viral shorts and unlock real earnings with AI-powered tools.</p>
+    <p>Unleash viral clips from your videos and turn views into cash—effortlessly.</p>
   </header>
   <div class="upload-section">
     <input type="file" id="videoInput" accept="video/*">
-    <button onclick="uploadVideo()">Go Viral Now</button>
+    <button onclick="uploadVideo()">Make Clips That Pay</button>
   </div>
   <section class="features">
-    <h2>What We Do</h2>
-    <div class="feature-grid">
+    <h2>Why ViralFunds AI?</h2>
+    <div class="grid">
       <div class="feature">
-        <h3>AI Clip Generator</h3>
-        <p>Upload any video, and our AI instantly creates short, viral-ready clips optimized for TikTok, YouTube Shorts, and Instagram.</p>
+        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=60" alt="AI Icon">
+        <h3>Smart Clip Creation</h3>
+        <p>Our AI digs into your videos, picks the hottest moments, and crafts clips ready to explode online.</p>
       </div>
       <div class="feature">
-        <h3>Monetization Magic</h3>
-        <p>Add affiliate links, sponsor overlays, and optimize for platform payouts—all automated to maximize your revenue.</p>
+        <img src="https://images.unsplash.com/photo-1556740714-a839f2e965df?w=60" alt="Money Icon">
+        <h3>Earnings Boost</h3>
+        <p>Add affiliate links, sponsor overlays, and optimize for payouts—all in one click.</p>
       </div>
       <div class="feature">
-        <h3>CashFlow Dashboard</h3>
-        <p>Track every dollar from views, affiliates, and sponsors in one sleek dashboard—know exactly what works.</p>
+        <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=60" alt="Dashboard Icon">
+        <h3>CashFlow Tracker</h3>
+        <p>See every penny from views, affiliates, and sponsors in a slick, real-time dashboard.</p>
+      </div>
+    </div>
+  </section>
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="grid">
+      <div class="step">
+        <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=60" alt="Upload Icon">
+        <h3>1. Upload Your Video</h3>
+        <p>Drop any video—vlogs, tutorials, or streams—and let us work the magic.</p>
+      </div>
+      <div class="step">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=60" alt="AI Icon">
+        <h3>2. AI Does the Heavy Lifting</h3>
+        <p>We analyze, clip, and caption—optimized for TikTok, Shorts, and Reels.</p>
+      </div>
+      <div class="step">
+        <img src="https://images.unsplash.com/photo-1551288049-b11d4a0c25e3?w=60" alt="Cash Icon">
+        <h3>3. Cash In</h3>
+        <p>Post your clips, track earnings, and watch your revenue soar.</p>
       </div>
     </div>
   </section>
   <section id="clipContainer">
-    <h2>Your Viral Clips</h2>
+    <h2>See It in Action</h2>
     <div class="clip-grid">
       <div class="clip">
-        <video src="https://via.placeholder.com/300x150.mp4" controls></video>
-        <p>Wow, this is insane! - Link in bio!</p>
+        <video src="https://assets.mixkit.co/videos/preview/mixkit-woman-dancing-under-changing-lights-1240-large.mp4" controls></video>
+        <p>Insane moves! - Shop now!</p>
       </div>
       <div class="clip">
-        <video src="https://via.placeholder.com/300x150.mp4" controls></video>
-        <p>Wait for it... - Link in bio!</p>
+        <video src="https://assets.mixkit.co/videos/preview/mixkit-person-writing-on-a-laptop-4568-large.mp4" controls></video>
+        <p>Work smarter... - Link in bio!</p>
       </div>
       <div class="clip">
-        <video src="https://via.placeholder.com/300x150.mp4" controls></video>
-        <p>You won’t believe this! - Link in bio!</p>
+        <video src="https://assets.mixkit.co/videos/preview/mixkit-cat-walking-on-autumn-leaves-484-large.mp4" controls></video>
+        <p>Too cute! - Get yours!</p>
       </div>
     </div>
   </section>
-  <section class="pricing-tease">
-    <h2>Start Earning Today</h2>
-    <p>Get unlimited clips and full monetization tools for just $19/month—join the beta now!</p>
+  <section class="testimonials">
+    <h2>Creators Love Us</h2>
+    <div class="grid">
+      <div class="testimonial">
+        <p>“ViralFunds turned my vlogs into cash cows—$500 in a week!”</p>
+        <h3>- Alex, TikTok Creator</h3>
+      </div>
+      <div class="testimonial">
+        <p>“The dashboard is a game-changer—I know what pays off instantly.”</p>
+        <h3>- Mia, YouTuber</h3>
+      </div>
+      <div class="testimonial">
+        <p>“Clips in minutes, money in days—insane tool!”</p>
+        <h3>- Jay, Influencer</h3>
+      </div>
+    </div>
+  </section>
+  <section class="pricing">
+    <h2>Pricing That Pays</h2>
+    <div class="grid">
+      <div class="plan">
+        <h3>Free</h3>
+        <p>5 clips/month, watermarked<br>Basic earnings tracker</p>
+      </div>
+      <div class="plan">
+        <h3>Pro - $19/mo</h3>
+        <p>Unlimited clips, no watermark<br>Full CashFlow Dashboard</p>
+      </div>
+      <div class="plan">
+        <h3>Elite - $99/mo</h3>
+        <p>Team access, white-label<br>Priority monetization tools</p>
+      </div>
+    </div>
   </section>
   <footer>
-    <p>Powered by AI - Trusted by creators worldwide</p>
+    <p>Powered by ViralFunds AI - Join the creator revolution</p>
+    <div>
+      <a href="#">About</a> | <a href="#">Support</a> | <a href="#">Blog</a> | <a href="#">Terms</a>
+    </div>
   </footer>
 
   <script>
     function uploadVideo() {
       const file = document.getElementById('videoInput').files[0];
       if (!file) return alert('Pick a video first!');
-      alert('Upload coming soon! Join the beta to start making clips.');
+      alert('Join the beta to start cashing in with your clips!');
     }
   </script>
 </body>
