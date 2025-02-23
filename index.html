@@ -1,391 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ViralFunds AI - Viral Clips That Pay</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <style>
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-      background: #fff;
-      color: #1A1A2E;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      position: relative;
-      text-align: center;
-      padding: 80px 20px 20px;
-      overflow: hidden;
-      background: #fff;
-    }
-    header video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.4;
-    }
-    .header-content {
-      position: relative;
-      z-index: 1;
-    }
-    h1 {
-      color: #1A1A2E;
-      font-size: 3.5em;
-      font-weight: 700;
-      margin: 0 0 10px;
-      line-height: 1.1;
-    }
-    header p {
-      font-size: 1.3em;
-      max-width: 700px;
-      margin: 10px auto;
-      color: #4A4A6A;
-    }
-    nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-    nav a {
-      color: #1A1A2E;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 1em;
-      font-weight: 600;
-    }
-    nav button {
-      background: #6B5BFF;
-      border: none;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    nav button:hover {
-      background: #4B8CFF;
-    }
-    .upload-section {
-      text-align: center;
-      margin: 20px auto 0;
-      max-width: 600px;
-    }
-    .input-wrapper {
-      display: flex;
-      justify-content: center;
-      background: #F5F5F5;
-      border-radius: 5px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    input[type="text"] {
-      padding: 12px;
-      border: none;
-      background: transparent;
-      color: #1A1A2E;
-      width: 100%;
-      max-width: 350px;
-      font-size: 1em;
-      outline: none;
-      placeholder-color: #4A4A6A;
-    }
-    button.generate {
-      padding: 12px 24px;
-      background: #6B5BFF;
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      border-radius: 0 5px 5px 0;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button.generate:hover {
-      background: #4B8CFF;
-    }
-    .trust {
-      font-size: 0.9em;
-      color: #4A4A6A;
-      margin-top: 10px;
-    }
-    .features, .monetization, .clip-showcase, .testimonials, .pricing {
-      padding: 60px 20px;
-      text-align: center;
-      background: #fff;
-    }
-    h2 {
-      color: #1A1A2E;
-      font-size: 2.2em;
-      font-weight: 600;
-      margin-bottom: 40px;
-    }
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .feature, .monetization-feature, .clip, .testimonial, .plan {
-      width: 300px;
-      text-align: center;
-    }
-    .feature img, .monetization-feature img {
-      width: 60px;
-      margin-bottom: 10px;
-    }
-    .feature h3, .monetization-feature h3 {
-      color: #6B5BFF;
-      font-size: 1.4em;
-      font-weight: 600;
-      margin: 10px 0;
-    }
-    .feature p, .monetization-feature p {
-      color: #4A4A6A;
-      font-size: 1em;
-    }
-    .clip-showcase {
-      background: #F5F5F5;
-    }
-    .clip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .clip {
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #E0E0E0;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-    video {
-      width: 100%;
-      border-radius: 5px;
-    }
-    .clip p {
-      margin: 5px 0;
-      font-size: 0.9em;
-      color: #1A1A2E;
-    }
-    .testimonials {
-      background: #F5F5F5;
-    }
-    .testimonial {
-      text-align: center;
-    }
-    .testimonial p {
-      font-style: italic;
-      color: #4A4A6A;
-      margin: 0 0 10px;
-    }
-    .testimonial h3 {
-      color: #6B5BFF;
-      font-size: 1.2em;
-      font-weight: 600;
-    }
-    .pricing {
-      background: #fff;
-    }
-    .plan {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #E0E0E0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-    .plan h3 {
-      color: #1A1A2E;
-      font-size: 1.8em;
-      font-weight: 600;
-      margin: 0 0 10px;
-    }
-    .plan p {
-      color: #4A4A6A;
-      margin: 0 0 20px;
-    }
-    .plan button {
-      width: 100%;
-      background: #6B5BFF;
-      padding: 10px 20px;
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .plan button:hover {
-      background: #4B8CFF;
-    }
-    footer {
-      padding: 40px 20px;
-      background: #0F0F1A;
-      text-align: center;
-      color: #A0A0A0;
-      font-size: 0.9em;
-    }
-    footer a {
-      color: #6B5BFF;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern App Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <video autoplay muted loop>
-      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-background-with-waves-31872-large.mp4" type="video/mp4">
-    </video>
-    <div class="header-content">
-      <nav>
-        <a href="#">Resources</a>
-        <a href="#">Pricing</a>
-        <a href="#" class="login-btn">Log in</a>
-        <button class="get-started">Get Started</button>
-      </nav>
-      <h1>ViralFunds AI</h1>
-      <p>Turn your videos into viral clips that cash in—all in one click.</p>
-      <div class="upload-section">
-        <div class="input-wrapper">
-          <input type="text" placeholder="Paste your YouTube URL or drop a file">
-          <button class="generate" onclick="uploadVideo()">Generate Clips</button>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="px-6 py-4 bg-white shadow-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600">YourLogo</div>
+            <div class="space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
+                <a href="#pricing" class="text-gray-600 hover:text-blue-600">Pricing</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
+            </div>
         </div>
-        <p class="trust">Trusted by 950K+ happy creators | Try for free, no credit card required</p>
-      </div>
-    </div>
-  </header>
-  <section class="features">
-    <h2>Why creators choose ViralFunds?</h2>
-    <div class="grid">
-      <div class="feature">
-        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=60" alt="AI Icon">
-        <h3>One-click magic</h3>
-        <p>Upload your video, and our AI whips up viral-ready clips in seconds—no editing skills needed.</p>
-      </div>
-      <div class="feature">
-        <img src="https://images.unsplash.com/photo-1556740714-a839f2e965df?w=60" alt="Captions Icon">
-        <h3>Auto-captions</h3>
-        <p>Get multi-language captions that grab attention and boost reach, all powered by AI.</p>
-      </div>
-      <div class="feature">
-        <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=60" alt="Face Icon">
-        <h3>Face focus</h3>
-        <p>Our smart framing keeps the spotlight on faces, making every clip pop.</p>
-      </div>
-    </div>
-  </section>
-  <section class="monetization">
-    <h2>Monetize Like a Pro</h2>
-    <div class="grid">
-      <div class="monetization-feature">
-        <img src="https://images.unsplash.com/photo-1551288049-b11d4a0c25e3?w=60" alt="Money Icon">
-        <h3>Earnings Boost</h3>
-        <p>Add affiliate links and sponsor overlays to every clip—turn views into revenue fast.</p>
-      </div>
-      <div class="monetization-feature">
-        <img src="https://images.unsplash.com/photo-1617604931442-7e0c8ed2963c?w=60" alt="Dashboard Icon">
-        <h3>CashFlow Dashboard</h3>
-        <p>Track every dollar from platforms, affiliates, and sponsors in real-time.</p>
-      </div>
-      <div class="monetization-feature">
-        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=60" alt="Revenue Icon">
-        <h3>Revenue Ready</h3>
-        <p>Optimize clips for TikTok payouts and YouTube funds with one tap—maximize your income.</p>
-      </div>
-    </div>
-  </section>
-  <section class="clip-showcase">
-    <h2>2.5M Clips Made by 1.0M Creators</h2>
-    <p>Grow your audience like the top creators by sharing short-form content daily. ViralFunds helps you create engaging video clips from your long videos in just a few clicks.</p>
-    <div class="clip-grid">
-      <div class="clip">
-        <video src="https://assets.mixkit.co/videos/preview/mixkit-woman-dancing-under-changing-lights-1240-large.mp4" controls></video>
-        <p>Insane moves! - Shop now!</p>
-      </div>
-      <div class="clip">
-        <video src="https://assets.mixkit.co/videos/preview/mixkit-person-writing-on-a-laptop-4568-large.mp4" controls></video>
-        <p>Work smarter... - Link in bio!</p>
-      </div>
-      <div class="clip">
-        <video src="https://assets.mixkit.co/videos/preview/mixkit-cat-walking-on-autumn-leaves-484-large.mp4" controls></video>
-        <p>Too cute! - Get yours!</p>
-      </div>
-      <div class="clip">
-        <video src="https://assets.mixkit.co/videos/preview/mixkit-woman-surfing-on-a-winter-day-1213-large.mp4" controls></video>
-        <p>Epic waves! - Join now!</p>
-      </div>
-      <div class="clip">
-        <video src="https://assets.mixkit.co/videos/preview/mixkit-man-taking-a-selfie-while-exercising-1262-large.mp4" controls></video>
-        <p>Fit goals! - Check out!</p>
-      </div>
-    </div>
-  </section>
-  <section class="testimonials">
-    <h2>Loved by creators</h2>
-    <div class="grid">
-      <div class="testimonial">
-        <p>“ViralFunds made my clips go viral *and* paid—I’m hooked!”</p>
-        <h3>Sarah T., TikTok Star</h3>
-      </div>
-      <div class="testimonial">
-        <p>“Easiest way to repurpose content and cash in—game-changer!”</p>
-        <h3>Mike R., YouTuber</h3>
-      </div>
-      <div class="testimonial">
-        <p>“The monetization tools doubled my earnings overnight!”</p>
-        <h3>Lisa K., Influencer</h3>
-      </div>
-    </div>
-  </section>
-  <section class="pricing">
-    <h2>Pricing</h2>
-    <div class="grid">
-      <div class="plan">
-        <h3>Free</h3>
-        <p>5 clips/month<br>Basic features</p>
-        <button onclick="alert('Join the beta!')">Get Started</button>
-      </div>
-      <div class="plan">
-        <h3>$19 / month</h3>
-        <p>Unlimited clips<br>Full monetization tools</p>
-        <button onclick="alert('Join the beta!')">Get Started</button>
-      </div>
-      <div class="plan">
-        <h3>$79 / month</h3>
-        <p>30 videos, 300 clips<br>Team access</p>
-        <button onclick="alert('Join the beta!')">Get Started</button>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <p>© 2025 ViralFunds AI - All rights reserved</p>
-    <div>
-      <a href="#">Home</a>
-      <a href="#">Pricing</a>
-      <a href="#">Blog</a>
-      <a href="#">Support</a>
-      <a href="#">Login</a>
-    </div>
-  </footer>
+    </nav>
 
-  <script>
-    function uploadVideo() {
-      const url = document.querySelector('input[type="text"]').value;
-      if (!url) return alert('Paste a URL or drop a file first!');
-      alert('Join the beta to generate clips that pay!');
-    }
-  </script>
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6">
+                        Transform Your Ideas Into Reality
+                    </h1>
+                    <p class="text-gray-600 text-lg mb-8">
+                        Create amazing content with our AI-powered platform. Simple, fast, and effective.
+                    </p>
+                    <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
+                        Get Started
+                    </button>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0">
+                    <img src="https://via.placeholder.com/600x400" alt="Hero Image" 
+                         class="rounded-lg shadow-xl floating mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="text-blue-600 text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3">Fast Processing</h3>
+                    <p class="text-gray-600">Instant results with our powerful cloud infrastructure</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="text-blue-600 text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-bold mb-3">AI Powered</h3>
+                    <p class="text-gray-600">Smart algorithms that learn and adapt to your needs</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition">
+                    <div class="text-blue-600 text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold mb-3">Secure</h3>
+                    <p class="text-gray-600">Enterprise-grade security for your data</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
